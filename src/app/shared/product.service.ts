@@ -10,4 +10,8 @@ export class ProductService {
     getProducts() {
       return this.http.get(this.url);
     }
+
+    addProduct(product: any) {
+       return this.http.post(this.url, product);
+    }
 }

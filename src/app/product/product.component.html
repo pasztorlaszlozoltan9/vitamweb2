@@ -1,5 +1,8 @@
 <h1>Termékek</h1>
 
+<button (click)="startShowModal()"
+class="btn btn-primary mb-3">Hozzáadás</button>
+
 <table class="table table-striped table-success">
     <thead>
         <tr>
@@ -19,3 +22,52 @@
     </tbody>
 
 </table>
+
+
+
+@if(showModal) {
+
+<div class="modal" tabindex="-1" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+        (click)="startCloseModal()"></button>
+      </div>
+      <div class="modal-body">
+        
+
+        <form [formGroup]="productForm" (ngSubmit)="startSave()"
+        id="productForm">
+            <div>
+                <label for="name" class="form-label">Név</label>
+                <input type="text" class="form-control"
+                formControlName="name" id="name">
+            </div>
+            <div>
+                <label for="form" class="form-label">Forma</label>
+                <input type="text" class="form-control"
+                formControlName="form" id="form">
+            </div>
+
+        </form>
+
+
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary"
+        (click)="startCloseModal()">
+            Bezárás
+        </button>
+
+        <button type="submit" class="btn btn-primary"
+        form="productForm">
+            Mentés
+        </button>
+      </div>
+    </div>
+  </div>
+</div>    
+}
