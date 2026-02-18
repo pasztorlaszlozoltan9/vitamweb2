@@ -14,9 +14,9 @@ class="btn btn-primary mb-3">Hozzáadás</button>
     <tbody>
         @for(product of products; track product.id) {
             <tr>
-                <td>{{product.id}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.form}}</td>
+                <td data-column="Id">{{product.id}}</td>
+                <td data-column="Név">{{product.name}}</td>
+                <td data-column="Forma">{{product.form}}</td>
             </tr>
         }
     </tbody>
